@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_perfil">
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.tpfinal.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil">
+
+
+        <action
+            android:id="@+id/action_nav_perfil_to_nav_Contratos"
+            app:destination="@id/nav_Contratos" />
+        <action
+            android:id="@+id/action_nav_perfil_to_nav_propiedades"
+            app:destination="@id/nav_propiedades" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_propiedades"
+        android:name="com.example.tpfinal.ui.Propiedades.PropiedadesFragment"
+        android:label="Propiedades"
+        tools:layout="@layout/fragment_propiedades" >
+        <action
+            android:id="@+id/action_nav_propiedades_to_detallesPropiedades"
+            app:destination="@id/detallesPropiedades" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_inquilinos"
+        android:name="com.example.tpfinal.ui.Inquilino.InquilinoFragment"
+        android:label="Inquilinos"
+        tools:layout="@layout/fragment_inquilinos" />
+    <fragment
+        android:id="@+id/detallesPropiedades"
+        android:name="com.example.tpfinal.DetallesPropiedades"
+        android:label= "Detalles"
+        tools:layout="@layout/fragment_detalles_propiedades" />
+    <fragment
+        android:id="@+id/nav_Contratos"
+        android:name="com.example.tpfinal.nav_Contratos"
+        android:label="fragment_nav__contratos"
+        tools:layout="@layout/fragment_nav__contratos" >
+        <action
+            android:id="@+id/action_nav_Contratos_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
+        <action
+            android:id="@+id/action_nav_Contratos_to_fragmentPagos"
+            app:destination="@id/fragmentPagos" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPagos"
+        android:name="com.example.tpfinal.FragmentPagos"
+        android:label="fragment_pagos"
+        tools:layout="@layout/fragment_pagos" />
+</navigation>
