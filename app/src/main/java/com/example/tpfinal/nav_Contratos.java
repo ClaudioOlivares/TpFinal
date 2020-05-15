@@ -47,6 +47,8 @@ public class nav_Contratos extends Fragment {
     {
         ArrayAdapter<Contrato> adapter = new ListaAdapter(fragmentView.getContext(),R.layout.item_contratos,list,getLayoutInflater());
         lv = fragmentView.findViewById(R.id.listContratos);
+        lv.setDivider(this.getResources().getDrawable(R.drawable.transperent));
+        lv.setDividerHeight(16);
         lv.setAdapter(adapter);
     }
 

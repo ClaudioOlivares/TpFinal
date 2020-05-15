@@ -45,6 +45,8 @@ public class PropiedadesFragment extends Fragment {
     {
         ArrayAdapter<Propiedad> adapter = new ListaAdapater(fragmentView.getContext(),R.layout.item_propiedad,list,getLayoutInflater());
         ListView lv = fragmentView.findViewById(R.id.listPropiedades);
+        lv.setDivider(this.getResources().getDrawable(R.drawable.transperent));
+        lv.setDividerHeight(16);
         lv.setAdapter(adapter);
 
 

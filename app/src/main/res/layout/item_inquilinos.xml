@@ -4,14 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg_container"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="41dp"
+        android:layout_width="51dp"
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
         android:text="Dni"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_medium"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/roboto_medium"
         app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/tvDniInquilino" />
 
@@ -41,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto_medium"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/tvApellidoInquilino" />
 
@@ -49,16 +54,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_medium"
         app:layout_constraintStart_toEndOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreInquilino" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="46dp"
+        android:layout_width="56dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
         android:text="Apellido"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,10 +73,11 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="46dp"
+        android:layout_width="56dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
         android:text="Nombre"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,12 +85,22 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="46dp"
+        android:layout_width="57dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
         android:text="Trabajo"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:height="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 </androidx.constraintlayout.widget.ConstraintLayout>

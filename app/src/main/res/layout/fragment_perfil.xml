@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".ui.perfil.PerfilFragment">
 
     <ScrollView
@@ -21,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto"
                 android:text="Nro de Documento:" />
 
             <EditText
@@ -30,6 +32,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -38,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="23dp"
+                android:fontFamily="@font/roboto"
                 android:text="Apellido:" />
 
             <EditText
@@ -47,6 +51,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -55,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="23dp"
+                android:fontFamily="@font/roboto"
                 android:text="Nombre:" />
 
             <EditText
@@ -64,6 +70,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -72,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="23dp"
+                android:fontFamily="@font/roboto"
                 android:text="Telefono" />
 
             <EditText
@@ -81,6 +89,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -89,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="23dp"
+                android:fontFamily="@font/roboto"
                 android:text="Email:" />
 
             <EditText
@@ -98,6 +108,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -106,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="23dp"
+                android:fontFamily="@font/roboto"
                 android:text="Password" />
 
             <EditText
@@ -115,16 +127,22 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="125dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="84dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="268dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="33dp"
-                android:text="Modificar" />
+                android:background="@drawable/botones"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Modificar"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp" />
         </LinearLayout>
     </ScrollView>
 
