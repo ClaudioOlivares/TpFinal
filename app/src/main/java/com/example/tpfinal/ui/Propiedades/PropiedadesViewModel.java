@@ -1,7 +1,11 @@
 package com.example.tpfinal.ui.Propiedades;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -9,39 +13,83 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.tpfinal.Propiedad;
 import com.example.tpfinal.R;
+import com.example.tpfinal.models.Inmueble;
+import com.example.tpfinal.models.Propietario;
+import com.example.tpfinal.request.ApiClient;
+import com.example.tpfinal.sharedprefs.Sharedprefs;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class PropiedadesViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<List<Inmueble>> inmueblesMutableLiveData;
+    private Sharedprefs sp;
 
     public PropiedadesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
-
-
-    public ArrayList<Propiedad> cargarDatosPropiedad()
+    public LiveData<List<Inmueble>> getInmueblesMutableLiveData()
     {
-        ArrayList<Propiedad> list = new ArrayList<>();
-        list.add(new Propiedad(R.drawable.caba1,"10000","Juana Koslay"));
-        list.add(new Propiedad(R.drawable.caba2,"7500","Potrero de Los Funes"));
-        list.add(new Propiedad(R.drawable.caba3,"11500","Trapiche"));
-
-        return  list;
+        if(inmueblesMutableLiveData == null)
+        {
+           inmueblesMutableLiveData = new MutableLiveData<>();
+        }
+        return inmueblesMutableLiveData;
     }
 
-    public void datos(ImageView foto, TextView precio, TextView direccion, Propiedad p)
+    public void Obtenerdatos(final Context ctx)
     {
-        precio.setText(p.getPrecio());
+        String token = "Bearer " + sp.leerToken(ctx);
+        Call<List<Inmueble>> res = ApiClient.getMyApiClient().TraerInmuebles(token);
+        res.enqueue(new Callback<List<Inmueble>>() {
+            @Override
+            public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
+                 if(response.isSuccessful())
+                 {
+
+                    inmueblesMutableLiveData.postValue(response.body());
+                 }
+                 else
+                 {
+                     try
+                     {
+                         Toast.makeText(ctx, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                     }
+                     catch (IOException e)
+                     {
+                         e.printStackTrace();
+                     }
+                 }
+            }
+
+            @Override
+            public void onFailure(Call<List<Inmueble>> call, Throwable t) {
+                Toast.makeText(ctx, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+
+
+
+
+
+
+    public void datos( TextView precio, TextView direccion, Inmueble p)
+    {
+        precio.setText(Double.toString(p.getPrecio()));
         direccion.setText(p.getDireccion());
-        foto.setImageResource(p.getFoto());
-
     }
 }

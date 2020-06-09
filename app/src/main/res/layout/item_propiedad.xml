@@ -8,57 +8,30 @@
     android:layout_height="match_parent"
     android:layout_marginTop="30dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recuadro"
-        android:layout_width="144dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="26dp"
-        android:background="@drawable/contenedores"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/fotoPropiedad"
-            android:layout_width="128dp"
-            android:layout_height="126dp"
-            android:maxWidth="128dp"
-            android:maxHeight="126dp"
-            android:layout_marginTop="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@android:drawable/ic_dialog_alert" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="60dp"
         android:layout_height="23dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/roboto"
         android:text="Precio:"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/recuadro"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="69dp"
         android:layout_height="23dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto"
         android:text="Direccion:"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/recuadro"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -88,7 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recuadro" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

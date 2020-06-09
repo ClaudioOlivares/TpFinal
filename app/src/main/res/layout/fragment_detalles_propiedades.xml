@@ -9,19 +9,17 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etDireccionDetalles"
         android:layout_width="264dp"
         android:layout_height="58dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="55dp"
         android:ems="10"
         android:enabled="false"
-        android:inputType="textPersonName"
-        android:text="Juana Koslay" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView10"
@@ -30,39 +28,27 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="27dp"
         android:fontFamily="@font/roboto_medium"
         android:text="Direccion" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Precio" />
-
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etPrecioDetalles"
         android:layout_width="264dp"
         android:layout_height="58dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="197dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="172dp"
         android:ems="10"
         android:enabled="false"
-        android:inputType="textPersonName"
-        android:text="10000" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/etPrecioDetalles"
         android:layout_alignParentStart="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="35dp"
@@ -70,26 +56,50 @@
         android:text="Tipo" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etTipoInmuebleDetalles"
         android:layout_width="264dp"
         android:layout_height="58dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="295dp"
         android:ems="10"
         android:enabled="false"
-        android:inputType="textPersonName"
-        android:text="Comercio" />
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etTipoInmuebleDetalles"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="294dp"
+        android:text="Ambientes" />
+
+    <EditText
+        android:id="@+id/etCantAmbientesDetalles"
+        android:layout_width="264dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="420dp"
+        android:ems="10"
+        android:inputType="text" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/cbEstadoDetalles"
         android:layout_width="113dp"
         android:layout_height="42dp"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/etCantAmbientesDetalles"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#4FC2F7"
         android:buttonTint="#45A5EF"
         android:fontFamily="@font/roboto_medium"
@@ -101,18 +111,29 @@
         android:id="@+id/btnGuardarDetallesProp"
         android:layout_width="268dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/checkBox"
+        android:layout_below="@+id/cbEstadoDetalles"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="57dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="78dp"
         android:background="@drawable/botones"
         android:fontFamily="@font/roboto_medium"
         android:text="Guardar Cambios"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etDireccionDetalles"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Precio" />
 
 </RelativeLayout>

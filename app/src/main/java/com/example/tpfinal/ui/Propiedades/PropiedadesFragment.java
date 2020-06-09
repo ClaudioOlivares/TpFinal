@@ -14,11 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
 import com.example.tpfinal.Propiedad;
 import com.example.tpfinal.R;
+import com.example.tpfinal.models.Inmueble;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +29,24 @@ public class PropiedadesFragment extends Fragment {
 
     private PropiedadesViewModel PropiedadesViewModel;
     private ListView lv;
-    private ArrayList<Propiedad> list = new ArrayList<>();
+    private List<Inmueble> list = new ArrayList<>();
     private View fragmentView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PropiedadesViewModel = ViewModelProviders.of(this).get(PropiedadesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_propiedades, container, false);
         fragmentView = root;
-        list = PropiedadesViewModel.cargarDatosPropiedad();
+        PropiedadesViewModel.Obtenerdatos(getContext());
+        PropiedadesViewModel.getInmueblesMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
+            @Override
+            public void onChanged(List<Inmueble> inmuebles) {
+                list = inmuebles;
+                generarVista();
+            }
+        });
+
         generarVista();
         return root;
     }
@@ -43,7 +54,7 @@ public class PropiedadesFragment extends Fragment {
 
     public void generarVista()
     {
-        ArrayAdapter<Propiedad> adapter = new ListaAdapater(fragmentView.getContext(),R.layout.item_propiedad,list,getLayoutInflater());
+        ArrayAdapter<Inmueble> adapter = new ListaAdapater(fragmentView.getContext(),R.layout.item_propiedad,list,getLayoutInflater());
         ListView lv = fragmentView.findViewById(R.id.listPropiedades);
         lv.setDivider(this.getResources().getDrawable(R.drawable.transperent));
         lv.setDividerHeight(16);
@@ -52,13 +63,13 @@ public class PropiedadesFragment extends Fragment {
 
     }
 
-    public class ListaAdapater extends ArrayAdapter<Propiedad>
+    public class ListaAdapater extends ArrayAdapter<Inmueble>
     {
         Context ct;
-        List<Propiedad> lista;
+        List<Inmueble> lista;
         LayoutInflater li;
 
-        public ListaAdapater(@NonNull Context context, int resource, @NonNull List<Propiedad> objects,LayoutInflater li) {
+        public ListaAdapater(@NonNull Context context, int resource, @NonNull List<Inmueble> objects,LayoutInflater li) {
             super(context, resource, objects);
             this.ct = context;
             this.lista = objects;
@@ -74,16 +85,17 @@ public class PropiedadesFragment extends Fragment {
                 itemView = li.inflate(R.layout.item_propiedad,parent,false);
 
             }
-            Propiedad prop = lista.get(position);
-            ImageView foto = itemView.findViewById(R.id.fotoPropiedad);
+            final Inmueble prop = lista.get(position);
+
             TextView precio = itemView.findViewById(R.id.tvPrecio);
             TextView direccion = itemView.findViewById(R.id.tvDire);
-            PropiedadesViewModel.datos(foto,precio,direccion,prop);
+            PropiedadesViewModel.datos(precio,direccion,prop);
              itemView.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View v) {
-                     //Toast.makeText(fragmentView.getContext(), "asd", Toast.LENGTH_LONG).show();
-                     Navigation.findNavController(v).navigate(R.id.detallesPropiedades);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("id",prop.getIdInmueble());
+                    Navigation.findNavController(v).navigate(R.id.detallesPropiedades,bundle);
                  }
              });
             return itemView;
