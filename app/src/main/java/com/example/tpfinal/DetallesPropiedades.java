@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.tpfinal.models.Inmueble;
@@ -30,6 +31,9 @@ private CheckBox estado;
 private int id;
 
 private DetallesPropiedadesViewModel vm;
+
+private Spinner sp;
+
 
 View root ;
 
@@ -85,6 +89,9 @@ View root ;
 
         btnGuardarCambios = root.findViewById(R.id.btnGuardarDetallesProp);
     }
+
+
+
 
 
 

@@ -64,6 +64,9 @@ public class ApiClient {
          @GET("Inmueble/{id}")
          Call<List<Inmueble>> ObtenerInmueble(@Header("Authorization") String token,@Path("id")int id);
 
+         @PUT("Inmueble/{id}")
+         Call<Inmueble> ActualizarInmueble(@Header("Authorization") String token, @Path("id") int id, @Body Inmueble i);
+
 
 
 

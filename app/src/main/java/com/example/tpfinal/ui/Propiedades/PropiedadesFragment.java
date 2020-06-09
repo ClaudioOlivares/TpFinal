@@ -22,6 +22,7 @@ import com.example.tpfinal.Propiedad;
 import com.example.tpfinal.R;
 import com.example.tpfinal.models.Inmueble;
 
+import java.nio.charset.spi.CharsetProvider;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +103,8 @@ public class PropiedadesFragment extends Fragment {
 
         }
     }
+
+
 
 
 }
