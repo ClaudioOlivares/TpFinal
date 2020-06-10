@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.tpfinal.models.Inmueble;
 import com.example.tpfinal.models.Propietario;
+import com.example.tpfinal.models.TipoInmueble;
 import com.example.tpfinal.models.Usuario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,7 +68,10 @@ public class ApiClient {
          @PUT("Inmueble/{id}")
          Call<Inmueble> ActualizarInmueble(@Header("Authorization") String token, @Path("id") int id, @Body Inmueble i);
 
+        //-----------------------------------Tipo Inmueble--------------------------------------------
 
+        @GET("TipoInmueble")
+        Call<List<TipoInmueble>> TraerTipoInmueble(@Header("Authorization") String token);
 
 
     }
