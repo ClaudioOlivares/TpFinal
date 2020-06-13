@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,15 +32,28 @@ public class PropiedadesFragment extends Fragment {
     private PropiedadesViewModel PropiedadesViewModel;
     private ListView lv;
     private List<Inmueble> list = new ArrayList<>();
+    private Button agregar;
     private View fragmentView;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PropiedadesViewModel = ViewModelProviders.of(this).get(PropiedadesViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_propiedades, container, false);
+
         fragmentView = root;
+
         PropiedadesViewModel.Obtenerdatos(getContext());
+
+        agregar = root.findViewById(R.id.btnAgregar);
+
+        agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.agregaPropiedad);
+            }
+        });
         PropiedadesViewModel.getInmueblesMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
@@ -49,6 +63,7 @@ public class PropiedadesFragment extends Fragment {
         });
 
         generarVista();
+
         return root;
     }
 
@@ -90,6 +105,15 @@ public class PropiedadesFragment extends Fragment {
 
             TextView precio = itemView.findViewById(R.id.tvPrecio);
             TextView direccion = itemView.findViewById(R.id.tvDire);
+            Button btnBorrar= itemView.findViewById(R.id.btnBorrar);
+
+            btnBorrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PropiedadesViewModel.Borrar(getContext(),prop.getIdInmueble());
+                    Navigation.findNavController(v).navigate(R.id.nav_propiedades);
+                }
+            });
             PropiedadesViewModel.datos(precio,direccion,prop);
              itemView.setOnClickListener(new View.OnClickListener() {
                  @Override

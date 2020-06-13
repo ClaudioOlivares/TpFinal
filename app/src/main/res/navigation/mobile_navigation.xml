@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_propiedades_to_nav_Contratos"
             app:destination="@id/nav_Contratos" />
+        <action
+            android:id="@+id/action_nav_propiedades_to_agregaPropiedad"
+            app:destination="@id/agregaPropiedad" />
     </fragment>
 
     <fragment
@@ -54,4 +57,9 @@
         android:name="com.example.tpfinal.FragmentPagos"
         android:label="Pagos"
         tools:layout="@layout/fragment_pagos" />
+    <fragment
+        android:id="@+id/agregaPropiedad"
+        android:name="com.example.tpfinal.AgregaPropiedad"
+        android:label="fragment_agrega_propiedad"
+        tools:layout="@layout/fragment_agrega_propiedad" />
 </navigation>

@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -46,6 +48,7 @@ public class ApiClient {
     public interface MyApiInterface {
 
 
+        //-------------------------------------Propietario------------------------------------------------
 
          @POST("Propietario/login")
          Call <String> logear(@Body Usuario user);
@@ -68,11 +71,15 @@ public class ApiClient {
          @PUT("Inmueble/{id}")
          Call<Inmueble> ActualizarInmueble(@Header("Authorization") String token, @Path("id") int id, @Body Inmueble i);
 
+         @POST("inmueble")
+         Call<Inmueble> CrearInmueble(@Header("Authorization") String token, @Body Inmueble i);
+
         //-----------------------------------Tipo Inmueble--------------------------------------------
 
         @GET("TipoInmueble")
         Call<List<TipoInmueble>> TraerTipoInmueble(@Header("Authorization") String token);
 
-
+        @DELETE("Inmueble/{id}")
+        Call<String> borrarInmueble(@Header("Authorization") String token, @Path("id") int id);
     }
 }

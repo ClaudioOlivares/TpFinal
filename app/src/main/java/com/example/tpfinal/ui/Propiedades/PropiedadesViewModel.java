@@ -92,4 +92,36 @@ public class PropiedadesViewModel extends ViewModel {
         precio.setText(Double.toString(p.getPrecio()));
         direccion.setText(p.getDireccion());
     }
+
+
+    public void Borrar(final Context ctx, int id)
+    {
+        String token = "Bearer " + sp.leerToken(ctx);
+
+        final Call<String> res = ApiClient.getMyApiClient().borrarInmueble(token,id);
+
+        res.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response)
+            {
+                if(response.isSuccessful())
+                {
+                    Toast.makeText(ctx, "Propiedad Eliminada", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    try {
+                        Toast.makeText(ctx, response.errorBody().string(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        Toast.makeText(ctx, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
 }
