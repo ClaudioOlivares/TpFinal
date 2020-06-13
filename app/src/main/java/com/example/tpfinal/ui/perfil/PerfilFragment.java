@@ -80,7 +80,7 @@ public class PerfilFragment extends Fragment{
 
         dni.setText(p.getDni());
 
-        apellido.setText(p.getDni());
+        apellido.setText(p.getApellido());
 
         nombre.setText(p.getNombre());
 

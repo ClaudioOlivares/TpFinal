@@ -60,6 +60,6 @@
     <fragment
         android:id="@+id/agregaPropiedad"
         android:name="com.example.tpfinal.AgregaPropiedad"
-        android:label="fragment_agrega_propiedad"
+        android:label="Agregar Propiedad"
         tools:layout="@layout/fragment_agrega_propiedad" />
 </navigation>

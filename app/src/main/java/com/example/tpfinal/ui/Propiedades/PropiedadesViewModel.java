@@ -106,7 +106,7 @@ public class PropiedadesViewModel extends ViewModel {
             {
                 if(response.isSuccessful())
                 {
-                    Toast.makeText(ctx, "Propiedad Eliminada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, "Propiedad Eliminada", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
